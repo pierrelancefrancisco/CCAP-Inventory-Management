@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using MySuppliers.Models;
+using System.Threading.Tasks;
+using CCAP_Inventory_Management.Models;
 
-
-namespace MySuppliers.Data
+namespace CCAP_Inventory_Management.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-        public DbSet<SupplierModel> Supplier { get; set; }
-        public DbSet<MySuppliers.Models.Contact> Contact { get; set; }
+      public DbSet<Products> Products { get; set; }
     }
 }
