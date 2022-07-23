@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CCAP_Inventory_Management.Models.OutGoing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OutGoingProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutGoingQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutGoingSupplierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutGoingLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutGoingCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutGoingStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutGoingProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutGoingQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutGoingSupplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutGoingLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutGoingCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutGoingStatus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OutGoingProductID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.OutGoingProductID"
+                   onclick='return confirm("Are you sure?");'>Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
