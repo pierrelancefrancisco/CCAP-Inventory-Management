@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Add">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="datatable">
     <thead>
         <tr>
             <th>
@@ -34,32 +34,43 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutGoingProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutGoingQuantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutGoingSupplierName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutGoingLocation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutGoingCategory)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutGoingStatus)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OutGoingProductID">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.OutGoingProductID"
-                   onclick='return confirm("Are you sure?");'>Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutGoingProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutGoingQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutGoingSupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutGoingLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutGoingCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutGoingStatus)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OutGoingProductID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OutGoingProductID"
+                       onclick='return confirm("Are you sure?");'>Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section scripts{
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/af-2.3.7/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#datatable").DataTable();
+        })
+    </script>
+}
