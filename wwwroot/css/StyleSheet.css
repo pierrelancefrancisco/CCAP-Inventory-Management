@@ -12,6 +12,7 @@
 body {
     background-color: #f3f5f9;
 }
+
 .wrapper {
     position: relative;
     display: flex;
@@ -27,10 +28,11 @@ body {
 }
 
     .sidebar h2 {
-        color: #fff;
+        color: white;
         text-transform: uppercase;
-        text-align: center;
+        text-align: left;
         margin-bottom: 30px;
+        margin-left: 10px;
     }
 
     .sidebar ul li {

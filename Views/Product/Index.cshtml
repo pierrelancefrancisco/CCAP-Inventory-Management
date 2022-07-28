@@ -3,30 +3,26 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <link rel="stylesheet" href="~/css/StyleSheet.css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.css" />
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.js"></script>
-
 <body>
-    <div class="sidebar">
-        <h2>Inventory Management System</h2>
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i>Homepage</a></li>
-            <li><a href="#"><i class="fas fa-user"></i>Product Company</a></li>
-            <li><a href="#"><i class="fas fa-address-card"></i>Inventory Incoming</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i>View Inventory</a></li>
-            <li><a href="#"><i class="fas fa-blog"></i>Master Records</a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i>Suppliers</a></li>
-            <li><a href="#"><i class="fas fa-map-pin"></i>Warehouses</a></li>
-        </ul>
-        <div class="icon_image">
-            <img class="icon" src="icon/CCAP-logo-white 4.svg">
-        </div>
-    </div>
     <div class="wrapper">
+        <div class="sidebar">
+            <h4>Inventory Management System</h4>
+            <ul>
+                <li><a href="test.html"><i class="fas fa-home"></i>Homepage</a></li>
+                <li><a href="#"><i class="fas fa-user"></i>Product Company</a></li>
+                <li><a href="#"><i class="fas fa-address-card"></i>Inventory Incoming</a></li>
+                <li><a href="#"><i class="fas fa-project-diagram"></i>View Inventory</a></li>
+                <li><a href="#"><i class="fas fa-blog"></i>Master Records</a></li>
+                <li><a href="#"><i class="fas fa-address-book"></i>Suppliers</a></li>
+                <li><a href="#"><i class="fas fa-map-pin"></i>Warehouses</a></li>
+            </ul>
+            <div class="icon_image">
+                <img class="icon" src="~/CCAP-logo-white 4.svg">
+            </div>
+        </div>
         <div class="main_content">
-            <div class="header"><h3>Inventory Incoming</h3></div>
+            <div class="header"><h1>Inventory Incoming</h1></div>
             <div class="info">
                 <div>
                     <h4>Product Category</h4>
@@ -40,6 +36,7 @@
                     <h4>Location</h4>
                     <input type="text">
                 </div>
+
                 <div class="btn">
                     <a class="InventoryButtons" asp-action="Add">Add to Inventory</a>
                 </div>
@@ -47,34 +44,33 @@
             </div>
 
             <div class="search">
-                <input type="text" placeholder="Search.." name="search" id="search">
-                <i class="fa fa-search"></i>
-
+                <input type="text" placeholder="Search.." name="search">
                 <button type="submit">Search<i class="fa fa-search"></i></button>
                 <button type="submit">Clear<i class="fa fa-search"></i></button>
             </div>
 
             <div class="table">
-                <table id="datatable">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ProductName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Quantity)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.SupplierName)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Location)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Category)
-                        </th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
+                <table class="table" id="datatable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProductName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Quantity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SupplierName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Location)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Category)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
@@ -95,9 +91,6 @@
                                     @Html.DisplayFor(modelItem => item.Category)
                                 </td>
                                 <td>
-                                    Delivered
-                                </td>
-                                <td>
                                     <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
                                     <a asp-action="Delete" asp-route-id="@item.ProductID"
                                        onclick='return confirm("Are you sure?");'>Delete</a>
@@ -108,12 +101,15 @@
                 </table>
             </div>
         </div>
-    </div>
-    <script>
-        $(document).ready(function () {
-            $('#datatable').DataTable();
-        });
-    </script>
+        </div>
 </body>
 
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.4/datatables.min.js"></script> 
+@section scripts{
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/af-2.3.7/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#datatable").DataTable();
+        })
+    </script>
+}
