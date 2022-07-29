@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CCAP_Inventory_Management.Models.Incoming>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IncomingProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncomnigQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncomingSupplierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncomingLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncomingCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncomingStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncomingProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncomnigQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncomingSupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncomingLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncomingCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncomingStatus)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IncomngProductID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IncomngProductID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IncomngProductID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/af-2.3.7/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#datatable").DataTable();
+        })
+    </script>
+}
+

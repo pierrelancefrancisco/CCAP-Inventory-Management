@@ -1,0 +1,59 @@
+﻿@model CCAP_Inventory_Management.Models.Incoming
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Incoming</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IncomngProductID" />
+            <div class="form-group">
+                <label asp-for="IncomingProductName" class="control-label"></label>
+                <input asp-for="IncomingProductName" class="form-control" />
+                <span asp-validation-for="IncomingProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncomnigQuantity" class="control-label"></label>
+                <input asp-for="IncomnigQuantity" class="form-control" />
+                <span asp-validation-for="IncomnigQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncomingSupplierName" class="control-label"></label>
+                <input asp-for="IncomingSupplierName" class="form-control" />
+                <span asp-validation-for="IncomingSupplierName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncomingLocation" class="control-label"></label>
+                <input asp-for="IncomingLocation" class="form-control" />
+                <span asp-validation-for="IncomingLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncomingCategory" class="control-label"></label>
+                <select asp-for="IncomingCategory" class="form-control" asp-items="Html.GetEnumSelectList<Incoming.IncomingProductCat>()"></select>
+                <span asp-validation-for="IncomingCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncomingStatus" class="control-label"></label>
+                <select asp-for="IncomingStatus" class="form-control" asp-items="Html.GetEnumSelectList<Incoming.IncomingStat>()"></select>
+                <span asp-validation-for="IncomingStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

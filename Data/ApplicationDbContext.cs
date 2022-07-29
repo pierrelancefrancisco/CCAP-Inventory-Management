@@ -17,5 +17,7 @@ namespace CCAP_Inventory_Management.Data
       public DbSet<Products> Products { get; set; }
 
         public DbSet<OutGoing> OutGoings { get; set; }
+
+        public DbSet<CCAP_Inventory_Management.Models.Incoming> Incoming { get; set; }
     }
 }
