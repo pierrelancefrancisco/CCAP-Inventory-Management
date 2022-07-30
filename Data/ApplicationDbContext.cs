@@ -18,6 +18,6 @@ namespace CCAP_Inventory_Management.Data
 
         public DbSet<OutGoing> OutGoings { get; set; }
 
-        public DbSet<CCAP_Inventory_Management.Models.Incoming> Incoming { get; set; }
+        
     }
 }
