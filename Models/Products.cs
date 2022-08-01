@@ -29,6 +29,8 @@ namespace CCAP_Inventory_Management.Models
 
         public ProductCategory Category { get; set; }
 
+        public ProductStatus Status { get; set;}
+
     }
 
     public enum ProductCategory
@@ -38,7 +40,12 @@ namespace CCAP_Inventory_Management.Models
         Decor = 2,
         HolidayDecor = 3,
         HomeDecore = 4
+    }
 
-
+    public enum ProductStatus
+    {
+         Delivering = 0,
+            Delivered = 1,
+            NoInfo = 2
     }
 }

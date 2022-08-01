@@ -35,7 +35,8 @@ namespace CCAP_Inventory_Management.Controllers
                 SupplierName = record.SupplierName,
                 Quantity = record.Quantity,
                 Location = record.Location,
-                Category = record.Category
+                Category = record.Category,
+                Status = record.Status
             };
             _context.Products.Add(product);
             _context.SaveChanges();
@@ -67,6 +68,7 @@ namespace CCAP_Inventory_Management.Controllers
             product.Quantity = record.Quantity;
             product.Location = record.Location;
             product.Category = record.Category;
+            product.Status = record.Status;
 
             _context.Products.Update(product);
             _context.SaveChanges();
