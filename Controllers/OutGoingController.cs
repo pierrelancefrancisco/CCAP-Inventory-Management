@@ -80,15 +80,26 @@ namespace CCAP_Inventory_Management.Controllers
 
         public IActionResult Delete(int? id)
         {
+            
             if (id == null)
             {
                 return RedirectToAction("Index");
             }
             var outgoing = _context.OutGoings.Where(i => i.OutGoingProductID == id).SingleOrDefault();
+            var arch = new Archive()
+            {
+                ProductName = outgoing.OutGoingProductName,
+                SupplierName = outgoing.OutGoingSupplierName,
+                Quantity = outgoing.OutGoingQuantity,
+                Location = outgoing.OutGoingLocation,
+                Category = (ProdCategory)outgoing.OutGoingCategory,
+                Status = (ProdStatus)outgoing.OutGoingStatus
+            };
             if(outgoing == null)
             {
                 return RedirectToAction("Index");
             }
+            _context.Archives.Add(arch);
             _context.OutGoings.Remove(outgoing);
             _context.SaveChanges();
 
