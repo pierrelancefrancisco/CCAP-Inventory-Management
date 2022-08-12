@@ -18,6 +18,7 @@ namespace CCAP_Inventory_Management.Data
 
         public DbSet<OutGoing> OutGoings { get; set; }
 
+      public DbSet<Archive> Archives { get; set; }
         
     }
 }

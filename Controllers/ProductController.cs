@@ -85,10 +85,20 @@ namespace CCAP_Inventory_Management.Controllers
                 return RedirectToAction("Index");
             }
             var product = _context.Products.Where(i => i.ProductID == id).SingleOrDefault();
-            if(product == null)
+            var arch = new Archive()
+            {
+                ProductName = product.ProductName,
+                SupplierName = product.SupplierName,
+                Quantity = product.Quantity,
+                Location = product.Location,
+                Category = (ProdCategory)product.Category,
+                Status = (ProdStatus)product.Status
+            };
+            if (product == null)
             {
                 return RedirectToAction("Index");
             }
+            _context.Archives.Add(arch);
             _context.Products.Remove(product);
             _context.SaveChanges();
 
