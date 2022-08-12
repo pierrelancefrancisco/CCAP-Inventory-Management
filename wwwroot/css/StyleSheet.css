@@ -20,7 +20,7 @@ body {
 }
 
 .sidebar {
-    width: 200px;
+    width: 180px;
     height: 100%;
     background: #5c2f01;
     padding: 30px 0px;
@@ -28,11 +28,10 @@ body {
 }
 
     .sidebar h2 {
-        color: white;
+        color: #fff;
         text-transform: uppercase;
-        text-align: left;
+        text-align: center;
         margin-bottom: 30px;
-        margin-left: 10px;
     }
 
     
@@ -82,8 +81,9 @@ body {
 
 .wrapper .main_content {
     width: 100%;
-    margin-left: 200px;
+    margin-left: 180px;
 }
+
 
     .wrapper .main_content .input {
         position: absolute;
@@ -218,6 +218,7 @@ body {
         width: 100%;
         padding-top: 12px;
         padding-bottom: 12px;
+        table-layout: fixed;
     }
 
 
