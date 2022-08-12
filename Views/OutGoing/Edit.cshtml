@@ -3,19 +3,16 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit Outgoing Products</h1>
-
-<hr />
-
+<link rel="stylesheet" href="~/css/StyleSheet.css" />
 <body>
     <div class="sidebar">
         <h2>Inventory Management System</h2>
         <ul>
             <li><a href="#"><i class="fas fa-home"></i>Homepage</a></li>
             <li><a href="#"><i class="fas fa-user"></i>Product Company</a></li>
-            <li><a href="#"><i class="fas fa-address-card"></i>Inventory Incoming</a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i>View Inventory</a></li>
+            <li><a asp-controller="Product" asp-action="Index"><i class="fas fa-address-card"></i>Inventory Incoming</a></li>
+            <li><a asp-controller="OutGoing" asp-action="Index"><i class="fas fa-project-diagram"></i>Inventory Outgoing</a></li>
+            <li><a asp-controller="Archive" asp-action="Index"><i class="fas fa-project-diagram"></i>Archive</a></li>
             <li><a href="#"><i class="fas fa-blog"></i>Master Records</a></li>
             <li><a href="#"><i class="fas fa-address-book"></i>Suppliers</a></li>
             <li><a href="#"><i class="fas fa-map-pin"></i>Warehouses</a></li>
@@ -23,42 +20,42 @@
         <div class="icon_image">
             <img class="icon" src="icon/CCAP-logo-white 4.svg">
         </div>
-        </div>
+    </div>
         <div class="wrapper">
             <div class="main_content">
-                <div class="header"><h3>Inventory Outgoing</h3></div>
+                <div class="header"><h3>Edit Outgoing Products</h3></div>
                 <div class="info">
                     <div>
                         <form asp-action="Edit">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <input type="hidden" asp-for="OutGoingProductID" />
                             <div class="form-group">
-                                <label asp-for="OutGoingProductName" class="control-label"></label>
+                                <h4>Product Name (Outgoing)</h4>
                                 <input asp-for="OutGoingProductName" class="form-control" />
                                 <span asp-validation-for="OutGoingProductName" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="OutGoingQuantity" class="control-label"></label>
+                                <h4>Quantity (Outgoing)</h4>
                                 <input asp-for="OutGoingQuantity" class="form-control" />
                                 <span asp-validation-for="OutGoingQuantity" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="OutGoingSupplierName" class="control-label"></label>
+                                <h4>Supplier Name (Outgoing)</h4>
                                 <input asp-for="OutGoingSupplierName" class="form-control" />
                                 <span asp-validation-for="OutGoingSupplierName" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="OutGoingLocation" class="control-label"></label>
+                                <h4>Location (Outgoing)</h4>
                                 <input asp-for="OutGoingLocation" class="form-control" />
                                 <span asp-validation-for="OutGoingLocation" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="OutGoingCategory" class="control-label"></label>
+                                <h4>Category (Outgoing)</h4>
                                 <select asp-for="OutGoingCategory" class="form-control" asp-items="Html.GetEnumSelectList<OutGoing.OutGoingProductCat>()"></select>
                                 <span asp-validation-for="OutGoingCategory" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="OutGoingStatus" class="control-label"></label>
+                                <h4>Status (Outgoing)</h4>
                                 <select asp-for="OutGoingStatus" class="form-control" asp-items="Html.GetEnumSelectList<OutGoing.OutGoingStat>()"></select>
                                 <span asp-validation-for="OutGoingStatus" class="text-danger"></span>
                             </div>
